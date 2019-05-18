@@ -2,9 +2,9 @@ package hello;
 
 import java.util.ArrayList;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,7 +18,7 @@ public class TodoListController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
-	public Todo getTodoTaskById(@RequestParam(value="id", defaultValue="1") String id) {	
+	public Todo getTodoTaskById(@PathVariable("id") String id) {	
 		return todolist.getById(Long.valueOf(id));
 	}
 	
@@ -28,7 +28,7 @@ public class TodoListController {
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
-	public ArrayList<Todo> deleteTodoTaskById(@RequestParam(value="id", defaultValue="1") String id) {	
+	public ArrayList<Todo> deleteTodoTaskById(@PathVariable("id") String id) {	
 		return todolist.deleteById(Long.valueOf(id));
 	}
 }

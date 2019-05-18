@@ -43,9 +43,10 @@ public class TodoList {
 	}
 	public ArrayList<Todo> deleteById(long id) {
 		for(int index = 0; index < todolist.size(); index++) {
-			if(todolist.get(index).getId() == id)
+			if(todolist.get(index).getId() == id) {
 				todolist.remove(index);
-			break;
+				break;
+			}	
 		}
 		return todolist;
 	}
